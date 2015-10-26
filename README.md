@@ -1,6 +1,6 @@
-# A presentation of CSS Flexbox
+# A presentation of what append after the render tree
 
-Presentation of properties, browsers compatibilities and use cases
+Presentation of the layout/paint/composite part of a browser render engine
 
 
 ## Installation

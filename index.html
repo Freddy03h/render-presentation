@@ -91,19 +91,19 @@
       }
 
       .reveal .signature {
+        margin-top: 50px;
         letter-spacing: 2px;
-        font-size: 12px;
-        position: absolute;
-        top: 15px;
-        right: 15px;
         display: flex;
         align-items: center;
+        justify-content: center;
         z-index: 1;
         opacity: 0.75;
       }
 
       .reveal .signature img{
-        height: 14px;
+        border: none;
+        box-shadow: none;
+        height: 50px;
         margin-right: 5px;
       }
 
@@ -134,11 +134,6 @@
 
     <div class="reveal">
 
-      <div class="signature">
-        <img src="img/twitter.png">
-        <a href="http://twitter.com/harrisfreddy" target="_blank">@harrisfreddy</a>
-      </div>
-
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
@@ -160,12 +155,13 @@
         </section>
 
         <section>
+          <h3>Render Engine</h3>
           <img src="img/quicklook-render-engine.png" />
         </section>
 
-        <section>
+        <!--<section>
           <img src="img/render-tree-construction.png" />
-        </section>
+        </section>-->
 
         <!-- |||| -->
 
@@ -214,7 +210,7 @@
           </ul>
         </section>
 
-        <section>
+        <!--<section>
           <h2>Paint</h2>
           <p>Certaines propriétés provoquent automatiquement la création d'un Stacking Context</p>
           <ul>
@@ -226,7 +222,7 @@
             <li>specific layout : flexbox, grid</li>
             <li>…</li>
           </ul>
-        </section>
+        </section>-->
 
 
         <!-- |||| -->
@@ -265,6 +261,11 @@
           </ul>
         </section>
 
+        <section>
+          <h3>Composite</h3>
+          <img src="img/layers.jpg" />
+        </section>
+
         <!-- |||| -->
 
         <section>
@@ -287,7 +288,7 @@
         <section>
           <h2>Margin animation</h2>
 
-          <iframe width="840" height="630" src="http://jsbin.com/gamenur/embed?output" frameborder="0" sandbox="allow-same-origin allow-scripts"></iframe>
+          <iframe width="840" height="630" src="http://jsbin.com/yiregu/embed?output" frameborder="0" sandbox="allow-same-origin allow-scripts"></iframe>
         </section>
 
         <section>
@@ -339,7 +340,6 @@
             <li>Appelé avant le paint</li>
             <li>Regroupe les transformations de la même frame</li>
             <li>Le callback n'est plus appelé lorsque la page n'est plus visible</li>
-            <li>Est soumis à l'Event Loop car dans la Main Thread</li>
           </ul>
           <pre><code data-trim contenteditable class="javascript">
 function draw() {
@@ -357,9 +357,9 @@ requestAnimationFrame(draw);
         </section>
 
         <section>
-          <h2>Debouncing</h2>
+          <h2>Debouncing / Throttling</h2>
           <ul>
-            <li>Permet de ne pas rappeler une fonction avant un temps donné</li>
+            <li>Ne pas rappeler une fonction avant un 'temps' donné</li>
             <li>Utile pour des animations basées sur Scroll, Mouse et Touch Events</li>
             <li>Découple les events de l'animation</li>
           </ul>
@@ -381,6 +381,12 @@ function update() {
 requestAnimationFrame(update);
 window.addEventListener('scroll', onScroll, false);
           </code></pre>
+        </section>
+
+        <section>
+          <h3>request Animation Frame</h3>
+          <p>Est soumis à l'Event Loop car dans la Main Thread</p>
+          <iframe width="840" height="630" src="http://jsbin.com/gamenur/embed?output" frameborder="0" sandbox="allow-same-origin allow-scripts"></iframe>
         </section>
 
         <!-- |||| -->
@@ -434,12 +440,13 @@ animation.reverse();
           <h2>References</h2>
           <ul>
             <li class="li-divider">Talks</li>
-            <li><a href="https://www.youtube.com/watch?v=rpNXWxMyzHQ" target="_blank">Delivering 60 FPS in the browser</a></li>
             <li><a href="https://www.youtube.com/watch?v=cpDqc5KPk7U" target="_blank">Animations on Fire</a></li>
+            <li><a href="https://www.youtube.com/watch?v=rpNXWxMyzHQ" target="_blank">Delivering 60 FPS in the browser</a></li>
 
             <li class="li-divider">Articles</li>
             <li><a href="http://www.html5rocks.com/en/tutorials/speed/layers/" target="_blank">Accelerated Rendering in Chrome</a></li>
             <li><a href="https://developers.google.com/web/fundamentals/performance/rendering/" target="_blank">Rendering performance</a></li>
+            <li><a href="https://developers.google.com/web/fundamentals/performance/rendering/simplify-paint-complexity-and-reduce-paint-areas" target="_blank">Simplify paint complexity and reduce paint areas</a></li>
             <li><a href="http://www.html5rocks.com/en/tutorials/speed/rendering/" target="_blank">Jank Busting for Better Rendering Performance</a></li>
             <li><a href="http://www.html5rocks.com/en/tutorials/speed/animations/?redirect_from_locale=fr" target="_blank">Leaner, Meaner, Faster Animations with requestAnimationFrame</a></li>
             <li><a href="http://spoike.ghost.io/user-input-framerate-throttling-in-the-browser/" target="_blank">User input framerate throttling in the browser</a></li>
@@ -448,6 +455,7 @@ animation.reverse();
 
             <li class="li-divider">Others</li>
             <li><a href="http://csstriggers.com/" target="_blank">CSS Triggers</a></li>
+            <li><a href="http://jankfree.org/" target="_blank">Jank Free</a></li>
 
           </ul>
         </section>
@@ -478,6 +486,11 @@ animation.reverse();
 
         <section>
           <h2>Merci</h2>
+
+          <div class="signature">
+            <img src="img/twitter.png">
+            <a href="http://twitter.com/harrisfreddy" target="_blank">@harrisfreddy</a>
+          </div>
         </section>
 
       </div>

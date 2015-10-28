@@ -137,8 +137,8 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h1><small>After the</small> render tree</h1>
-          <h4>web in-app performance</h4>
+          <h1><small>Web Animation Performance</small></h1>
+          <h4>After the render tree</h4>
           <hr>
           <p>
             <a href="http://freddy03h.github.io" target="_blank">Freddy Harris</a> / <a href="http://twitter.com/harrisfreddy" target="_blank">@harrisfreddy</a>
@@ -185,15 +185,13 @@
 
         <section>
           <h2>Layout</h2>
-          <ul>
-            <li>Changer la taille ou la position d'un block c'est recalculer tous les éléments liés (enfants, frères, parents)</li>
-            <li>Optimisation en écriture DOM grâce au Dirty Tree</li>
-          </ul>
+          <iframe width="840" height="630" src="https://www.youtube.com/embed/qR6Y6OaDwpU" frameborder="0" allowfullscreen></iframe>
         </section>
 
         <section>
           <h2>Layout</h2>
-          <iframe width="840" height="630" src="https://www.youtube.com/embed/qR6Y6OaDwpU" frameborder="0" allowfullscreen></iframe>
+          <p>Changer la taille ou la position d'un block c'est recalculer tous les éléments liés (enfants, frères, parents)</p>
+          <!--<p>Optimisation en écriture DOM grâce au Dirty Tree</p>-->
         </section>
 
         <!-- |||| -->
@@ -205,7 +203,7 @@
         <section>
           <h2>Paint</h2>
           <ul>
-            <li>Applique tous les styles visuels (background, color, box-shadow, etc</li>
+            <li>Applique tous les styles visuels (background, color, box-shadow, etc)</li>
             <li>Regroupe les éléments en sous-arbres : RenderLayers</li>
           </ul>
         </section>
@@ -235,7 +233,7 @@
           <h2>Composite</h2>
           <ul>
             <li>GraphicsLayers sont des sous-arbres des RenderLayers</li>
-            <li>Bitmaps envoyées au GPU</li>
+            <li>Bitmaps envoyés au GPU</li>
             <li>GPU applique des opérations sur les textures (matrix operation, alpha blends, … )</li>
           </ul>
         </section>
@@ -286,7 +284,7 @@
         </section>
 
         <section>
-          <h2>Margin animation</h2>
+          <h3>Margin animation</h3>
 
           <iframe width="840" height="630" src="http://jsbin.com/yiregu/embed?output" frameborder="0" sandbox="allow-same-origin allow-scripts"></iframe>
         </section>
@@ -295,11 +293,35 @@
           <h3>Margin Desktop</h3>
           <img src="img/margin-desktop.png" />
         </section>
+        <section>
+          <img src="img/margin-desktop-1.png" style="transform: scale(1.6)" />
+        </section>
+        <section>
+          <img src="img/margin-desktop-2.png" style="transform: scale(1.6)" />
+        </section>
+        <section>
+          <img src="img/margin-desktop-3.png" style="transform: scale(1.6)" />
+        </section>
+        <!--<section>
+          <img src="img/margin-desktop.png" style="transform: scale(1.2)" />
+        </section>-->
 
         <section>
           <h3>Margin Mobile</h3>
           <img src="img/margin-mobile.png" />
         </section>
+        <section>
+          <img src="img/margin-mobile-1.png" style="transform: scale(1.6)" />
+        </section>
+        <section>
+          <img src="img/margin-mobile-2.png" style="transform: scale(1.6)" />
+        </section>
+        <section>
+          <img src="img/margin-mobile-3.png" style="transform: scale(1.6)" />
+        </section>
+        <!--<section>
+          <img src="img/margin-mobile.png" style="transform: scale(1.2)" />
+        </section>-->
 
         <section>
           <h2>Transform animation</h2>
@@ -312,15 +334,28 @@
           <img src="img/transform-mobile.png" />
         </section>
 
+        <!--<section>
+          <h3>Transform Mobile</h3>
+          <img src="img/transform-mobile-canary.png" />
+          <p><small>Chrome Canary</small></p>
+        </section>-->
+
         <section>
-          <h2>Transform + Will-change animation</h2>
+          <h3>Transform + Will-change animation</h3>
 
           <iframe width="840" height="630" src="http://jsbin.com/rolaso/embed?output" frameborder="0" sandbox="allow-same-origin allow-scripts"></iframe>
         </section>
 
-        <section>
-          <h3>Transform + Will-change Mobile</h3>
+        <!--<section>
+          <h3>Transform + Will-change</h3>
           <img src="img/transform-willchange-mobile.png" />
+          <p><small>Chrome</small></p>
+        </section>-->
+
+        <section>
+          <h3>Transform + Will-change</h3>
+          <img src="img/transform-willchange-mobile-canary.png" />
+          <!--<p><small>Chrome Canary</small></p>-->
         </section>
 
         <section>
@@ -331,7 +366,7 @@
         <!-- |||| -->
 
         <section>
-          <h1>request Animation Frame</h1>
+          <h1><small>request Animation Frame</small></h1>
         </section>
 
         <section>
@@ -357,7 +392,7 @@ requestAnimationFrame(draw);
         </section>
 
         <section>
-          <h2>Debouncing / Throttling</h2>
+          <h3>Debouncing / Throttling</h3>
           <ul>
             <li>Ne pas rappeler une fonction avant un 'temps' donné</li>
             <li>Utile pour des animations basées sur Scroll, Mouse et Touch Events</li>
@@ -392,7 +427,7 @@ window.addEventListener('scroll', onScroll, false);
         <!-- |||| -->
 
         <section>
-          <h1>Web Animations API</h1>
+          <h1><small>Web Animations API</small></h1>
         </section>
 
         <section>
@@ -427,6 +462,11 @@ animation.currentTime = 500;
 animation.playbackRate = 0.5;
 animation.reverse();
           </code></pre>
+        </section>
+
+        <section>
+          <h3>Web Animations API</h3>
+          <iframe width="840" height="630" src="http://jsbin.com/lakada/embed?output" frameborder="0" sandbox="allow-same-origin allow-scripts"></iframe>
         </section>
 
         <section>
@@ -474,7 +514,7 @@ animation.reverse();
         <section data-background="img/fa_artboard.png">
           <h4 style="color: white">Actually</h4>
           <h2 style="color: white">Front end developer</h2>
-          <p><a href="http://followanalytics.com">FollowAnalytics</a></p>
+          <p><a href="mailto:jobs@followanalytics.com">FollowAnalytics recrute !</a></p>
         </section>
 
         <section>

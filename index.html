@@ -329,11 +329,104 @@
 
         <!-- |||| -->
 
-        <!-- requestAnimationFrame -->
+        <section>
+          <h1>request Animation Frame</h1>
+        </section>
 
-        <!-- throttling (eq: touchEvent) -->
+        <section>
+          <h2>request Animation Frame</h2>
+          <ul>
+            <li>Appelé avant le paint</li>
+            <li>Regroupe les transformations de la même frame</li>
+            <li>Le callback n'est plus appelé lorsque la page n'est plus visible</li>
+            <li>Est soumis à l'Event Loop car dans la Main Thread</li>
+          </ul>
+          <pre><code data-trim contenteditable class="javascript">
+function draw() {
+  requestAnimationFrame(draw);
+  // Drawing code goes here
+}
 
-        <!-- animation API -->
+requestAnimationFrame(draw);
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>caniuse</h3>
+          <img src="img/caniuse-raf.png" />
+        </section>
+
+        <section>
+          <h2>Debouncing</h2>
+          <ul>
+            <li>Permet de ne pas rappeler une fonction avant un temps donné</li>
+            <li>Utile pour des animations basées sur Scroll, Mouse et Touch Events</li>
+            <li>Découple les events de l'animation</li>
+          </ul>
+          <pre><code data-trim contenteditable class="javascript">
+var latestKnownScrollY = 0;
+
+function onScroll() {
+  latestKnownScrollY = window.scrollY;
+}
+
+function update() {
+  requestAnimationFrame(update);
+
+  var currentScrollY = latestKnownScrollY;
+
+  // Drawing code goes here
+}
+
+requestAnimationFrame(update);
+window.addEventListener('scroll', onScroll, false);
+          </code></pre>
+        </section>
+
+        <!-- |||| -->
+
+        <section>
+          <h1>Web Animations API</h1>
+        </section>
+
+        <section>
+          <h2>Web Animations API</h2>
+          <ul>
+            <li>Unification des animations déclaratives et impératives</li>
+            <li>Permet de créer une animation en JavaScript qui fonctionne avec la même efficacité qu'une animation CSS</li>
+          </ul>
+          <pre><code data-trim contenteditable class="javascript">
+element.animate([
+  {transform: 'translate(200px, -100%)'},
+  {transform: 'translate(200px, ' + window.innerHeight + 'px)'}
+], {
+  duration: 1500,
+  iterations: 10,
+  delay: 300
+});
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Web Animations API</h2>
+          <p>Controller l'animation !</p>
+          <pre><code data-trim contenteditable class="javascript">
+var animation = element.animate({transform: 'translateX(300px)'}, 1000);
+
+animation.play();
+
+animation.pause();
+animation.currentTime = 500;
+
+animation.playbackRate = 0.5;
+animation.reverse();
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>caniuse</h3>
+          <img src="img/caniuse-anim.png" />
+        </section>
 
         <!-- |||| -->
 
@@ -347,6 +440,10 @@
             <li class="li-divider">Articles</li>
             <li><a href="http://www.html5rocks.com/en/tutorials/speed/layers/" target="_blank">Accelerated Rendering in Chrome</a></li>
             <li><a href="https://developers.google.com/web/fundamentals/performance/rendering/" target="_blank">Rendering performance</a></li>
+            <li><a href="http://www.html5rocks.com/en/tutorials/speed/rendering/" target="_blank">Jank Busting for Better Rendering Performance</a></li>
+            <li><a href="http://www.html5rocks.com/en/tutorials/speed/animations/?redirect_from_locale=fr" target="_blank">Leaner, Meaner, Faster Animations with requestAnimationFrame</a></li>
+            <li><a href="http://spoike.ghost.io/user-input-framerate-throttling-in-the-browser/" target="_blank">User input framerate throttling in the browser</a></li>
+            <li><a href="http://w3c.github.io/web-animations/">W3C Web Animations</a></li>
 
 
             <li class="li-divider">Others</li>
@@ -375,7 +472,7 @@
         <section>
           <h4>Projet personnel</h4>
           <a href="http://www.mangacollec.com" target="_blank">
-            <img src="img/mangacollec.png" />
+            <img src="img/mangacollec.jpg" />
           </a>
         </section>
 

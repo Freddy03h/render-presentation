@@ -259,17 +259,285 @@
           </ul>
         </section>
 
-        <section>
+        <!--<section>
           <h3>Composite</h3>
           <img src="img/layers.jpg" />
+        </section>-->
+
+        <style>
+          #mobile {
+            width: 320px;
+            height: 480px;
+            margin: auto;
+            position:relative;
+            background-color: white;
+          }
+          #mobile-background {
+            background: url('/img/parallax-wallpaper-5.jpg') 0 / contain;
+            background-size: contain;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: .7;
+          }
+          #mobile-header {
+            height: 80px;
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            background: rgba(207,0,10,.7);
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            z-index: 2;
+          }
+          #mobile-header-title {
+            color: #fff;
+            font-size: 24px;
+          }
+          #mobile-content {
+             z-index: 1;
+            padding: 86px 20px 20px;
+            text-align: left;
+            color: #333;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            overflow-y: auto;
+          }
+          #mobile-content-title {
+            font-size: 40px;
+            line-height: normal;
+          }
+          #mobile-content-detail {
+            text-transform: uppercase;
+            color: #666;
+            font-size: 16px;
+            line-height: normal;
+            margin-bottom: 50px;
+          }
+          #mobile-content-text {
+            font-size: 18px;
+            line-height: normal;
+          }
+
+          .step2#mobile, .step2#mobile * {
+            transform-style: preserve-3d;
+            transition: transform ease 2s,color ease 2s,background ease 2s,outline ease 2s;
+            will-change: transform, color, background, outline;
+          }
+
+          /* STEP 1 : EMPTY */
+          .step1#mobile {
+            transform: initial;
+            background: none;
+          }
+          .step1 #mobile-background {
+            transform: initial;
+            background: none;
+          }
+          .step1 #mobile-content {
+            transform: initial;
+            border: solid transparent 1px;
+            overflow-y: visible;
+          }
+          .step1 #mobile-content-title {
+            color:transparent;
+          }
+          .step1 #mobile-content-detail {
+            color:transparent;
+          }
+          .step1 #mobile-content-text {
+            color:transparent;
+          }
+          .step1 #mobile-header {
+            transform: initial;
+            color:transparent;
+            background: none;
+          }
+          .step1 #mobile-header-title {
+            color:transparent;
+          }
+
+          .step1#mobile, .step1#mobile  * {
+            outline:solid transparent 2px;
+          }
+
+
+          /* STEP 2 : LAYOUT */
+          .step2#mobile {
+            transform: initial;
+            background: none;
+          }
+          .step2 #mobile-background {
+            transform: initial;
+            background: none;
+          }
+          .step2 #mobile-content {
+            transform: initial;
+            color:transparent;
+          }
+          .step2 #mobile-content-title {
+            color:transparent;
+          }
+          .step2 #mobile-content-detail {
+            color:transparent;
+          }
+          .step2 #mobile-content-text {
+            color:transparent;
+          }
+          .step2 #mobile-header {
+            transform: initial;
+            background: none;
+          }
+          .step2 #mobile-header-title {
+            color:transparent;
+          }
+
+          .step2#mobile, .step2#mobile  * {
+            outline:solid black 2px;
+          }
+
+
+          /* STEP 3 : TURN */
+          .step3#mobile {
+            transform: translateX(-150px) rotateY(45deg);
+          }
+          .step3 #mobile-background {
+            transform: translateZ(100px) translateX(100px);
+          }
+          .step3 #mobile-content {
+            transform: translateZ(200px) translateX(200px);
+          }
+          .step3 #mobile-content-title {
+            transform: translateZ(25px) translateX(25px);
+          }
+          .step3 #mobile-content-detail {
+            transform: translateZ(50px) translateX(50px);
+          }
+          .step3 #mobile-content-text {
+            transform: translateZ(75px) translateX(75px);
+          }
+          .step3 #mobile-header {
+            transform: translateZ(300px) translateX(300px);
+          }
+          .step3 #mobile-header-title {
+            transform: translateZ(50px) translateX(50px);
+          }
+
+          /* STEP 4 : GROUP */
+          .step4#mobile {
+            transform: translateX(-150px) rotateY(45deg);
+          }
+          .step4 #mobile-background {
+            transform: translateZ(100px) translateX(100px);
+          }
+          .step4 #mobile-content {
+            transform: translateZ(200px) translateX(200px);
+          }
+          .step4 #mobile-content-title {
+            transform: initial;
+          }
+          .step4 #mobile-content-detail {
+            transform: initial;
+          }
+          .step4 #mobile-content-text {
+            transform: initial;
+          }
+          .step4 #mobile-header {
+            transform: translateZ(300px) translateX(300px);
+          }
+          .step4 #mobile-header-title {
+            transform: translateZ(1px) translateX(0px);
+          }
+
+          .step4#mobile, .step4#mobile  * {
+            /*outline:solid transparent 2px;*/
+          }
+
+          /* STEP 5 : PAINT */
+          .step5#mobile {
+            background: #FFF;
+          }
+          .step5 #mobile-background {
+            background: url('/img/parallax-wallpaper-5.jpg') 0 / contain;
+          }
+          .step5 #mobile-content {
+            border: solid #808080 1px;
+            overflow-y: auto;
+          }
+          .step5 #mobile-content-title {
+            color:#333;
+          }
+          .step5 #mobile-content-detail {
+            color:#666;
+          }
+          .step5 #mobile-content-text {
+            color:#333;
+          }
+          .step5 #mobile-header {
+            background: rgba(207,0,10,.7);
+          }
+          .step5 #mobile-header-title {
+            color: #FFF;
+          }
+
+          .step5#mobile, .step5#mobile  * {
+            outline:solid transparent 2px;
+          }
+
+
+          /* STEP 6 : COMPOSITE */
+          .step6#mobile, .step6#mobile * {
+            transform: initial;
+          }
+        </style>
+
+        <section>
+
+          <div id="mobile">
+
+            <div id="mobile-background"></div>
+
+            <div id="mobile-header">
+              <div id="mobile-header-title">
+                AppName
+              </div>
+            </div>
+
+            <div id="mobile-content">
+              <div id="mobile-content-title">Title</div>
+              <div id="mobile-content-detail">Decembre 1, 2015</div>
+              <div id="mobile-content-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec purus ante. Maecenas a dui bibendum enim tincidunt bibendum. Aenean fermentum, nunc ac dignissim efficitur, lorem arcu eleifend mauris, ac accumsan leo arcu eget lorem. Proin nec elementum libero.</p>
+                <p>Vivamus tempus neque a tellus euismod volutpat. Quisque efficitur mauris urna. Suspendisse mollis facilisis convallis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec purus ante. Maecenas a dui bibendum enim tincidunt bibendum. Aenean fermentum, nunc ac dignissim efficitur, lorem arcu eleifend mauris, ac accumsan leo arcu eget lorem. Proin nec elementum libero.</p>
+                <p>Vivamus tempus neque a tellus euismod volutpat. Quisque efficitur mauris urna. Suspendisse mollis facilisis convallis.</p>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div style="transform:translateY(100px);text-align: right;">
+            <button id="nextStep">Next Step</button>
+          </div>
+
         </section>
+
+        <script>
+          var mobileEl = document.getElementById('mobile');
+          var buttonNextStep = document.getElementById('nextStep');
+          var currentStep = 0;
+          buttonNextStep.addEventListener('click', function() {
+            currentStep++;
+            mobileEl.classList.add('step'+currentStep);
+          });
+        </script>
 
         <!-- |||| -->
 
-        <section>
+        <!--<section>
           <h1>Animator</h1>
           <img src="img/blog_animator.jpg">
-        </section>
+        </section>-->
 
         <!-- |||| -->
 

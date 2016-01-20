@@ -151,6 +151,30 @@
         <!-- |||| -->
 
         <section>
+          <h1>about me</h1>
+        </section>
+
+        <section data-background="img/mydesk.jpg">
+          <h4 style="color: white">Previously</h4>
+          <h2 style="color: white">Mobile web developer</h2>
+        </section>
+
+        <section data-background="img/fa_artboard.png">
+          <h4 style="color: white">Actually</h4>
+          <h2 style="color: white">Lead Front end developer</h2>
+          <p><a href="mailto:jobs@followanalytics.com">FollowAnalytics recrute !</a></p>
+        </section>
+
+        <section>
+          <h4>Projet personnel</h4>
+          <a href="http://www.mangacollec.com" target="_blank">
+            <img src="img/mangacollec.jpg" />
+          </a>
+        </section>
+
+        <!-- |||| -->
+
+        <section>
           <h1>Render Engine</h1>
         </section>
 
@@ -526,6 +550,10 @@
           var buttonNextStep = document.getElementById('nextStep');
           var currentStep = 0;
           buttonNextStep.addEventListener('click', function() {
+            if(currentStep>=6) {
+              mobileEl.className = '';
+              currentStep = 0;
+            }
             currentStep++;
             mobileEl.classList.add('step'+currentStep);
           });
@@ -768,28 +796,6 @@ animation.reverse();
         </section>
 
         <!-- |||| -->
-
-        <section>
-          <h1>about me</h1>
-        </section>
-
-        <section data-background="img/mydesk.jpg">
-          <h4 style="color: white">Previously</h4>
-          <h2 style="color: white">Mobile web developer</h2>
-        </section>
-
-        <section data-background="img/fa_artboard.png">
-          <h4 style="color: white">Actually</h4>
-          <h2 style="color: white">Front end developer</h2>
-          <p><a href="mailto:jobs@followanalytics.com">FollowAnalytics recrute !</a></p>
-        </section>
-
-        <section>
-          <h4>Projet personnel</h4>
-          <a href="http://www.mangacollec.com" target="_blank">
-            <img src="img/mangacollec.jpg" />
-          </a>
-        </section>
 
         <section>
           <h2>Merci</h2>
